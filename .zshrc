@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-GIT_DIR=$HOME/.darkit_git_stuff
+GIT_STUFF=$HOME/.darkit_git_stuff
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
