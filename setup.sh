@@ -19,7 +19,6 @@ fi
 echo "Installing Symlinks ..."
 
 ln -s `pwd`/.zshrc ~/.zshrc
-ln -s `pwd`/.zsh-update ~/.zsh-update
 ln -s `pwd`/.oh-my-zsh ~/.oh-my-zsh
 
 echo "Symlinks installed!"

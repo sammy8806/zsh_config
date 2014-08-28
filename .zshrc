@@ -108,7 +108,7 @@ alias cl='clear'
 
 # Update Git stuff
 OLDPWD=$(pwd)
-cd "${GIT_STUFF}"
+cd "${GIT_STUFF}/zsh_config"
 echo "-> Checking for console updates"
 git pull --recurse-submodules > /dev/null
 cd ${OLDPWD}
