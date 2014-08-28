@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+GIT_DIR=$HOME/.darkit_git_stuff
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -104,6 +105,13 @@ alias cl='clear'
 #     ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
 #     ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 #}
+
+# Update Git stuff
+OLDPWD=$(pwd)
+cd "${GIT_STUFF}"
+echo "-> Checking for console updates"
+git pull --recurse-submodules > /dev/null
+cd ${OLDPWD}
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
