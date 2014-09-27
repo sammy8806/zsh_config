@@ -52,6 +52,15 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+# -------------------------------------------------------------------
+# Keymap settings
+# -------------------------------------------------------------------
+# bindkey
+bindkey -e
+bindkey "\e[3~" delete-char
+# Home- und End-Keys.
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
 
 # -------------------------------------------------------------------
 # Git aliases
@@ -91,6 +100,8 @@ alias capd='cap deploy'
 
 alias cl='clear'
 
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 # -------------------------------------------------------------------
 # FUNCTIONS
@@ -98,12 +109,13 @@ alias cl='clear'
 
 # return my IP address
 function myip() {
-    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
-     ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-     ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-     ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-     ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+        ip addr | egrep '(inet[6]{,1}|^[0-9]+\:)' | sed 's/inet[6]* //' | sed -r 's/^[0-9]+\:(.*?):.*/#\1/i'
 }
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# Load .zshrc.local file
+if [[ -a ~/.zshrc.local ]]; then
+        source ~/.zshrc.local
+fi
