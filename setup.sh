@@ -13,13 +13,12 @@ if [ "$ZSH_INSTALLED" == "no" ]; then
         echo "Please install ZSH on your system ..."
         exit 1
 else
-        ZSH_PATH=`grep zsh /etc/shells | egrep -v 'rzsh'`
+        ZSH_PATH=`grep zsh /etc/shells | egrep -v 'rzsh' | head -n 1`
 fi
 
 echo "Installing Symlinks ..."
 
 ln -s `pwd`/.zshrc ~/.zshrc
-ln -s `pwd`/.zsh-update ~/.zsh-update
 ln -s `pwd`/.oh-my-zsh ~/.oh-my-zsh
 
 echo "Symlinks installed!"

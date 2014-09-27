@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+GIT_STUFF=$HOME/.darkit_git_stuff
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -107,15 +108,22 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # FUNCTIONS
 # -------------------------------------------------------------------
 
-# return my IP address
 function myip() {
         ip addr | egrep '(inet[6]{,1}|^[0-9]+\:)' | sed 's/inet[6]* //' | sed -r 's/^[0-9]+\:(.*?):.*/#\1/i'
 }
-
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Load .zshrc.local file
 if [[ -a ~/.zshrc.local ]]; then
         source ~/.zshrc.local
 fi
+
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Update Git stuff
+OLDPWD=$(pwd)
+cd "${GIT_STUFF}/zsh_config"
+echo "-> Checking for console updates"
+git pull --recurse-submodules > /dev/null
+cd ${OLDPWD}
+
