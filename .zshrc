@@ -121,9 +121,11 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Update Git stuff
-OLDPWD=$(pwd)
-cd "${GIT_STUFF}/zsh_config"
-echo "-> Checking for console updates"
-git pull --recurse-submodules > /dev/null
-cd ${OLDPWD}
+if [ "$DIT_ZSH_UPDATE" != "no" ]; then
+	OLDPWD=$(pwd)
+	cd "${GIT_STUFF}/zsh_config"
+	echo "-> Checking for console updates"
+	git pull --recurse-submodules > /dev/null
+	cd ${OLDPWD}
+fi
 
