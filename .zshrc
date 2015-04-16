@@ -117,14 +117,6 @@ if [[ -a ~/.zshrc.local ]]; then
         source ~/.zshrc.local
 fi
 
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-# Load .zshrc.local file
-if [[ -a ~/.zshrc.local ]]; then
-        source ~/.zshrc.local
-fi
-
 # Update Git stuff
 if [ "$DIT_ZSH_UPDATE" != "no" ]; then
 	OLDPWD=$(pwd)
