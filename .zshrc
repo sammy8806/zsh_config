@@ -100,6 +100,8 @@ alias capd='cap deploy'
 # -------------------------------------------------------------------
 
 alias cl='clear'
+alias tulpen='netstat -tulpen'
+alias ls='ls -AF --group-directories-first --time-style=+"%Y-%m-%d %H:%M" --color=auto'
 
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
