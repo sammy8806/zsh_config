@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git_remote_branch debian encode64 last-working-dir screen svn urltools cp)
+plugins=(git git-extras git_remote_branch debian encode64 screen svn urltools cp)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,8 +101,9 @@ alias capd='cap deploy'
 
 alias cl='clear'
 
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias urldecode='python2 -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python2 -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+alias ls='ls -AF --group-directories-first --time-style=+"%Y-%m-%d %H:%M" --color=auto'
 
 # -------------------------------------------------------------------
 # FUNCTIONS
