@@ -24,4 +24,4 @@ ln -s `pwd`/.oh-my-zsh ~/.oh-my-zsh
 echo "Symlinks installed!"
 
 echo "Changing your Login-Shell"
-chsh -s "$ZSH_PATH"
+chsh -s "$ZSH_PATH" "$USER"
